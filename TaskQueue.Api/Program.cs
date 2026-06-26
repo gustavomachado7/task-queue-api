@@ -61,7 +61,7 @@ app.MapGet("/", () => Results.Ok(new
     return operation;
 });
 
-app.MapHealthChecks("/health");
+app.MapHealthEndpoints();
 app.MapJobEndpoints();
 
 app.Run();

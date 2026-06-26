@@ -5,8 +5,8 @@ using TaskQueue.Core.Models;
 
 namespace TaskQueue.Api.Endpoints
 {
-    // classe estática com a lógica dos endpoints extraída para facilitar os testes unitários
-    // endpoints Minimal API não são testáveis diretamente, então a lógica fica aqui
+    // Lógica extraída dos endpoints para facilitar testes unitários
+    // e manter os handlers da Minimal API mais simples
     public static class JobEndpointsHelper
     {
         public static async Task<IResult> CriarTarefa(
