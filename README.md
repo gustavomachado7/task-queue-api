@@ -22,6 +22,20 @@ O objetivo do projeto é demonstrar conceitos como:
 
 ---
 
+## Tecnologias
+
+- .NET 10  
+- ASP.NET Core Minimal API  
+- MongoDB  
+- RabbitMQ  
+- Worker Service  
+- Docker  
+- Docker Compose  
+- xUnit / Moq  
+- Swagger / OpenAPI
+
+---
+
 ## Pré-requisitos
 
 Para executar a aplicação:
