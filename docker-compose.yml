@@ -1,0 +1,71 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: taskqueue-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: taskqueue-rabbit
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: TaskQueue.Api/Dockerfile
+    container_name: taskqueue-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      mongo:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      Mongo__ConnectionString: mongodb://mongo:27017
+      Mongo__Database: taskqueue
+      Rabbit__Host: rabbitmq
+
+  worker:
+    build:
+      context: .
+      dockerfile: TaskQueue.Worker/Dockerfile
+    container_name: taskqueue-worker
+    depends_on:
+      mongo:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      Mongo__ConnectionString: mongodb://mongo:27017
+      Mongo__Database: taskqueue
+      Rabbit__Host: rabbitmq
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.Tests
+    container_name: taskqueue-tests
+    profiles:
+      - tests
+
+volumes:
+  mongo-data:

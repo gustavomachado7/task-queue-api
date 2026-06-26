@@ -1,0 +1,23 @@
+# build
+bin/
+obj/
+
+# visual studio
+.vs/
+*.user
+*.suo
+
+# docker
+docker-compose.override.yml
+
+# dotnet
+*.swp
+.DS_Store
+
+# nuget
+NuGet.config
+packages/
+
+# environment
+.env
+*.env

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-TaskQueue.Worker-248e76af-a3e3-4c56-a7de-26a9261cb366</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskQueue.Core\TaskQueue.Core.csproj" />
+    <ProjectReference Include="..\TaskQueue.Infrastructure\TaskQueue.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

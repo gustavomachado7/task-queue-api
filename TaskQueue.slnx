@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="TaskQueue.Api/TaskQueue.Api.csproj" Id="328474bd-762a-4cf2-961b-693ec6f0a552" />
+  <Project Path="TaskQueue.Core/TaskQueue.Core.csproj" Id="6ca00eb4-3a53-45b4-ae75-a59b83285d5c" />
+  <Project Path="TaskQueue.Infrastructure/TaskQueue.Infrastructure.csproj" Id="adc95201-0eed-4122-98d2-29ee1f7be786" />
+  <Project Path="TaskQueue.Tests/TaskQueue.Tests.csproj" Id="6e97aec1-0c54-4612-bae0-58bb3549e987" />
+  <Project Path="TaskQueue.Worker/TaskQueue.Worker.csproj" Id="80f9164f-1e19-4831-bbe2-01c10e9f050d" />
+</Solution>
