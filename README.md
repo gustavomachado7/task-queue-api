@@ -1,4 +1,4 @@
-# task-queue-api
+# Task Queue API
 
 API para criação e acompanhamento de tarefas processadas em background via RabbitMQ e MongoDB.
 
@@ -26,7 +26,7 @@ O objetivo do projeto é demonstrar conceitos como:
 
 Para executar a aplicação:
 
-- Docker Desktop instalado e em execução
+- Docker instalado e em execução
 - Docker Compose disponível
 
 Opcionalmente, para executar os testes fora do Docker:
@@ -52,7 +52,7 @@ cd task-queue-api
 Suba os serviços:
 
 ```bash
-docker compose up --build
+docker compose up -d --build
 ```
 
 Serão iniciados:
@@ -317,10 +317,10 @@ docker compose logs api -f
 ## Parar e subir
 
 ```bash
-docker compose down          # para os containers
-docker compose down -v       # para e remove os dados do banco
-docker compose up            # sobe novamente
-docker compose up --build    # sobe reconstruindo as imagens
+docker compose down           # para os containers
+docker compose down -v        # para e remove os dados do banco
+docker compose up -d          # sobe novamente
+docker compose up -d --build  # sobe reconstruindo as imagens
 ```
 
 ---
